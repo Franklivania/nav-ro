@@ -1,5 +1,24 @@
 @import '../../App.scss';
 
 .SkinCare{
+    position: relative;
+    width: $width;
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    place-items: center;
+    gap: 1rem;
+
     
+    img{
+        width: calc(($width) * 0.7);
+        height: calc(($height) * 0.3);
+        border-radius: $small-radius;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+    
+    #two, #four{
+        margin: 5rem 0 0 0;
+    }
 }

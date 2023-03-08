@@ -1,6 +1,8 @@
 @import '../../App.scss';
 
 main{
+    // position: absolute;
+    top: 0;
     width: $width;
     height: $height;
     background: url(../../assets/bg.svg) center no-repeat;

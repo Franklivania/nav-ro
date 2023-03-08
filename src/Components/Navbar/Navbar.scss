@@ -10,6 +10,7 @@ header{
     align-items: center;
     justify-content: space-around;
     background: none;
+    z-index: 999;
 
     nav, aside{
         width: calc(($width) * 0.5);
@@ -42,6 +43,18 @@ header{
                 background: $accent-color;
                 color: $secondary-color;
             }
+        }
+    }
+}
+
+.navbar-scrolled{
+    background: $main-color;
+    transition: all .5s ease-in-out;
+    border: none;
+
+    aside{
+        #login{
+            border: 0.01rem solid $secondary-color;
         }
     }
 }

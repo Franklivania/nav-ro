@@ -1,0 +1,23 @@
+@import '../../App.scss';
+
+.tips{
+    position: relative;
+    width: $width;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    place-items: center;
+    align-items: flex-start;
+    gap: 2rem;
+    font-family: $font;
+    color: $secondary-color;
+    font-size: $text;
+    font-weight: 300;
+    padding: 4rem 0;
+
+    aside{
+        width: calc(($width) * 0.8);
+        background: $sub-color;
+        padding: 1rem;
+        border-radius: $small-radius;
+    }
+}
