@@ -1,15 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Landing from './Pages/Landing';
+import OpenCamera from './Components/Camera/OpenCamera/OpenCamer';
+import Camera from './Components/Camera/Camera';
 
 function App() {
   return (
     <div className="App">
-        <Router>
-          <Routes>
+      <Router>
+        <Routes>
           <Route path='/' element={<Landing />} />
-          </Routes>
-        </Router>
+          <Route path='/Camera' element={<Camera />} />
+          <Route path='/OpenCamera' element={<OpenCamera />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
