@@ -4,7 +4,7 @@
 
 *,
 *::before,
-*::after{
+*::after {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -18,7 +18,7 @@ $main-color: #A85C3A;
 $sub-color: #E0B386;
 $accent-color: #5E3423;
 
-$font:  'Inter', sans-serif;
+$font: 'Inter', sans-serif;
 $font-two: 'Recoleta', sans-serif;
 $border-radius: 2rem;
 $small-radius: 0.5rem;
@@ -30,12 +30,12 @@ $text: 1.2rem;
 
 
 
-.App{
+.App {
   font-family: $font;
   // background: $secondary-color;
   // height: 100%;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0;
 }

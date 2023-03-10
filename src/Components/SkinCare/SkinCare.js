@@ -9,14 +9,14 @@ const SkinCare = () => {
   return (
     <section className='SkinCare'>
 
-        <img src={one} alt="" id='one' />
+      <img src={one} alt="" id='one' />
 
-        <img src={two} alt="" id='two' />
+      <img src={two} alt="" id='two' />
 
-        <img src={three} alt="" id='three' />
-        
-        <img src={four} alt="" id='four' />
-        
+      <img src={three} alt="" id='three' />
+
+      <img src={four} alt="" id='four' />
+
     </section>
   )
 }
