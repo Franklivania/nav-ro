@@ -1,0 +1,141 @@
+@import '../../App.scss';
+
+.login {
+  position: relative;
+  height: $height;
+  width: $width;
+  background: url(../../assets/signup.svg) center no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+
+  form {
+    position: relative;
+    height: calc(($height) * 0.65);
+    width: calc(($width) * 0.5);
+    background: $secondary-color;
+    border-radius: $small-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: $font;
+
+    h1{
+        align-self: flex-start;
+        padding: 1rem 0 1rem 9rem;
+        font-weight: 500;
+    }
+
+    label.floating-label {
+      position: relative;
+      width: calc(($width) * 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      
+      input {
+          width: calc(($width) * 1);
+          outline: none;
+          border: 0.01rem solid $gray;
+          border-radius: $border-radius;
+          padding: 0.7rem 1.3rem;
+          margin: 1rem 0;
+          font-size: $text;
+          transition: all .2s ease-in;
+
+          &:focus ~ span,
+          &:active ~ span,
+          &:visited ~ span{
+                color: $accent-color;
+                top: calc(($height) * 0.01);
+                background: $secondary-color;
+                padding: 0.2rem;
+                font-size: $small-text;
+            }
+        }
+
+      span {
+        position: absolute;
+        top: calc(($height) * 0.04);
+        left: calc(($width) * 0.05);
+        font-size: $text;
+        color: $gray;
+        transition: all 0.2s ease-out;
+        pointer-events: none;
+      }
+
+      i{
+        position: absolute;
+        top: calc(($height) * 0.045);
+        right: calc(($width) * 0.1);
+        cursor: pointer;
+        color: $gray
+      }
+
+    }
+
+    
+      
+
+    section {
+      width: $width;
+      display: flex;
+      align-items: center;
+
+      label {
+        width: calc(($width) * 0.6);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        color: $gray;
+        padding: 1rem 0;
+        cursor: pointer;
+
+        input {
+          width: calc(($width) * 0.05);
+        }
+      }
+
+        #forgot{
+            color: $gray;
+        }
+    }
+
+    button {
+      width: calc(($width) * 0.6);
+      padding: 1rem 0;
+      outline: none;
+      background: $main-color;
+      color: $secondary-color;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $text;
+      transition: all 0.5s ease-in-out;
+
+      i {
+        padding-left: 1rem;
+      }
+
+      &:hover {
+        background: $accent-color;
+      }
+    }
+
+    p {
+      margin: 2rem 0;
+      color: $gray;
+      
+      #sign{
+        color: $gray;
+      }
+    }
+  }
+}

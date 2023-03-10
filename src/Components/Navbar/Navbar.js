@@ -17,6 +17,7 @@ const Navbar = () => {
       }
     window.addEventListener('scroll', toggleNavbarBackground);
 
+
   return (
     <header className='navbar navbar-scrolled'>
         <nav>
@@ -26,7 +27,7 @@ const Navbar = () => {
 
         <aside>
             <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
-            <button type='submit' id='login'>Login <i class="fa-solid fa-arrow-right"></i></button>
+            <Link to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
         </aside>
 
     </header>

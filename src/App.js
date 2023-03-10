@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Landing from './Pages/Landing';
+import Landing from './Pages/Landing/Landing';
+import Login from './Pages/Login/Login';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <Router>
           <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='/login' element={<Login />} />
           </Routes>
         </Router>
     </div>
