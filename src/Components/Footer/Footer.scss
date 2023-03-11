@@ -1,0 +1,41 @@
+@import '../../App.scss';
+
+footer{
+    position: relative;
+    width: $width;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: $sub-color;
+    font-family: $font;
+    color: $secondary-color;
+
+    h1{
+        padding: 2rem 0;
+        font-family: $font-two;
+        font-weight: 400;
+    }
+
+    .socials, .foot{
+        padding: 1rem 0;
+
+        a{
+            text-decoration: none;
+            color: $secondary-color;
+            padding: 0 0.5rem;
+            transition: all .3s ease-in-out;
+
+            &:hover{
+                color: $main-color;
+            }
+        }
+    }
+
+    .foot{
+        border-top: 0.001rem solid $secondary-color;
+        width: $width;
+        text-align: center;
+    }
+
+}
