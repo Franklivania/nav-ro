@@ -3,8 +3,8 @@ import React from 'react'
 // import Navbar from '../Components/Navbar/Navbar'
 // import SkinCare from '../Components/SkinCare/SkinCare'
 // import Tips from '../Components/Tips/Tips'
-// import SignUp from '../Components/SignUp/SignUp'
-import Camera from '../Components/Camera/Camera'
+import SignUp from '../Pages/SignUp/SignUp'
+// import Camera from './Camera/Camera'
 // import OpenCamera from '../Components/Camera/OpenCamera/OpenCamer'
 
 const Landing = () => {
@@ -14,8 +14,8 @@ const Landing = () => {
       <Hero />
       <SkinCare />
       <Tips /> */}
-      {/* <SignUp /> */}
-      <Camera />
+      <SignUp />
+      {/* <Camera /> */}
       {/* <OpenCamera /> */}
     </div>
   )

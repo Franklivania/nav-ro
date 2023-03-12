@@ -9,20 +9,28 @@ import { Link } from 'react-router-dom'
 const OpenCamera = () => {
 
     let videoRef = useRef(null)
+
     // let photoRef = useRef(null)
 
     useEffect(() => {
         navigator.mediaDevices.getUserMedia({
-            video: { height: 720, width: 1280 }
+            video: true
         }).then((stream) => {
             let video = videoRef.current;
             video.srcObject = stream;
-            video.play()
-        }).catch(() => {
-            alert("Camer Not Found")
-        })
+            let playPromise = video.play()
 
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+
+                })
+            }
+        })
     }, [videoRef])
+    const stop = () => {
+        videoRef.current.stop();
+        console.log("hello")
+    }
 
     // const takePicture = () => {
     //     const width = 1280
@@ -43,7 +51,7 @@ const OpenCamera = () => {
 
     return (
         <main className='OpenCamera'>
-            <Link to="/Camera"><img src={back} alt="" className='back-btn' /></Link>
+            <Link to="/Camera"><img src={back} alt="" className='back-btn' onClick={stop} /></Link>
             <div className='OpenCamera-container'>
                 <div className='display-camera'>
                     <video ref={videoRef}></video>

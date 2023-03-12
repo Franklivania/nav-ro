@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Landing from './Pages/Landing';
-import OpenCamera from './Components/Camera/OpenCamera/OpenCamer';
-import Camera from './Components/Camera/Camera';
+import OpenCamera from './Pages/Camera/OpenCamera/OpenCamer';
+import Camera from './Pages/Camera/Camera';
 
 function App() {
   return (
