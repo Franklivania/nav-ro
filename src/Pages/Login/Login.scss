@@ -22,9 +22,9 @@
     font-family: $font;
 
     h1{
-        align-self: flex-start;
-        padding: 1rem 0 1rem 9rem;
-        font-weight: 500;
+      align-self: flex-start;
+      padding: 1rem 0 1rem 9rem;
+      font-weight: 500;
     }
 
     label.floating-label {
@@ -134,6 +134,38 @@
       
       #sign{
         color: $primary-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login{
+    width: calc($width * 1);
+    height: $height;
+    background: none;
+
+    form{
+      height: $height;
+      width: $width;
+      display: flex;
+      flex-direction: column;
+
+      h1{
+        width: $width;
+      }
+
+      label.floating-label{
+        width: calc($width * 0.9);
+
+        input{
+          width: $width;
+          padding: 1rem;
+        }
+      }
+
+      button{
+        width: calc($width * 0.9);
       }
     }
   }
