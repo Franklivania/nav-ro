@@ -1,0 +1,158 @@
+@import '../../App.scss';
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignUp {
+    background: url('../../assets/signup.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: $width;
+    height: $height;
+    display: grid;
+    place-items: center;
+
+    a {
+        color: $primary-color;
+    }
+
+    p,
+    i {
+        color: $gray;
+    }
+
+    form {
+        background-color: $secondary-color;
+        width: calc($width * 0.5);
+        min-height: calc($height * 0.75);
+        display: grid;
+        place-items: center;
+        border-radius: $small-radius;
+
+        label {
+            display: flex;
+            align-items: center;
+            border: 1px solid $gray;
+            border-radius: $small-radius;
+            padding: .5rem;
+            gap: .5rem;
+        }
+
+        .upper-part,
+        .bottom-part {
+
+            label,
+            input,
+            div {
+                width: calc($width * 1);
+                height: calc($width * 1);
+            }
+
+            label {
+                border: 1px solid $gray;
+                outline: none;
+                background-color: transparent;
+            }
+
+        }
+
+
+        .upper-part,
+        .bottom-part {
+            width: calc($width * 0.4);
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1.5rem;
+            border: none;
+        }
+
+        .upper-part {
+            margin-top: 3rem;
+
+            &> :nth-child(1) {
+                flex-direction: column;
+                align-items: start;
+                gap: 0;
+            }
+
+            div {
+                display: flex;
+                position: relative;
+
+                span {
+                    color: $gray;
+                    font-size: calc($text * 0.8);
+                    position: absolute;
+                    left: .5rem;
+                    top: .5rem;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                input {
+                    padding: .5rem;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    font-size: $text;
+
+                    &:focus~span {
+                        top: -1.7rem;
+                        left: -1rem;
+                    }
+
+                }
+            }
+
+            i {
+                cursor: pointer;
+            }
+
+            &> :nth-child(1),
+            &> :nth-child(2) {
+                border: none;
+                padding: 0;
+            }
+        }
+
+
+        .bottom-part {
+            text-align: center;
+            display: none;
+
+            &> :nth-child(1) {
+                border: none;
+                justify-content: center;
+                gap: 1rem;
+
+                span {
+                    width: calc($width * 1);
+                    height: 1px;
+                    background-color: $gray;
+                }
+
+            }
+
+        }
+        button {
+            @include flex();
+            width: calc($width * 0.3);
+            background-color: $main-color;
+            padding: 1rem;
+            border-radius: $border-radius;
+            border: none;
+            color: $secondary-color;
+            gap: .5rem;
+            font-size: $text;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                background: $accent-color;
+            }
+        }
+
+    }
+}

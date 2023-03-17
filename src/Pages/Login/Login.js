@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Login.scss'
+import lock from '../../assets/lock.svg'
+import user from '../../assets/user.svg'
 
 const Login = () => {
 
@@ -9,6 +11,7 @@ const Login = () => {
   const [isTextActive, setIsTextActive] = useState(false)
   const [isPasswordActive, setIsPasswordActive] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate()
 
   const handleTextClick = () => {
     setIsTextActive(true)
@@ -22,21 +25,26 @@ const Login = () => {
     setShowPassword(!showPassword)
   }
 
+  function handleSubmit(e){
+    e.preventDefault()
+    navigate('/camera')
+  }
+
   return (
     <div className='login'>
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <h1>
             Welcome Back
           </h1>
 
           <label htmlFor="text" className={`floating-label ${isTextActive || text ? 'active' : ''}`}>
             <input type="text" name="text" id="text" value={text} onChange={(e) => setText(e.target.value)} onClick={handleTextClick} />
-            <span className={text ? 'active' : ''}>Enter Username</span>
+            <span className={text ? 'active' : ''}> <img src={user} alt="" /> Enter Username</span>
           </label>
 
           <label htmlFor="password" className={`floating-label ${isPasswordActive || password ? 'active' : ''}`}>
             <input type={showPassword ? 'text' : 'password'} name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} onClick={handlePasswordClick} />
-            <span className={password ? 'active' : ''}>Password</span>
+            <span className={password ? 'active' : ''}> <img src={lock} alt="" /> Password</span>
             <i className={showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'} onClick={handleShowPassword}></i>
           </label>
 
@@ -52,7 +60,7 @@ const Login = () => {
           
           <button type="submit">Login <i className="fa-solid fa-arrow-right"></i></button>
 
-          <p>Don't have an account? &nbsp; <Link to='/' id='sign'>Sign up</Link></p>
+          <p>Don't have an account? &nbsp; <Link to='/signup' id='sign'>Sign up</Link></p>
 
         </form>
     </div>

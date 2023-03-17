@@ -1,0 +1,26 @@
+@import '../../App.scss';
+
+.camera {
+    height: $height;
+    width: $width;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: $gray;
+
+    h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+    }
+
+    img {
+        margin: 4rem 0 1rem 0;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+
+        &:active {
+            transform: scale(1.1);
+        }
+    }
+
+}
