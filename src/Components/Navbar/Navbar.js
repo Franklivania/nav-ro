@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.scss'
+import logo from '../../assets/logo.svg'
 
 const Navbar = () => {
 
@@ -17,8 +18,12 @@ const Navbar = () => {
       }
     window.addEventListener('scroll', toggleNavbarBackground);
 
+
   return (
     <header className='navbar navbar-scrolled'>
+
+        <img src={logo} alt="" />
+
         <nav>
             <Link to='/' className='link'>Home</Link>
             <Link to='/' className='link'>Contact</Link>
@@ -26,7 +31,7 @@ const Navbar = () => {
 
         <aside>
             <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
-            <button type='submit' id='login'>Login <i class="fa-solid fa-arrow-right"></i></button>
+            <Link to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
         </aside>
 
     </header>

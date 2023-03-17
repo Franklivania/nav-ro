@@ -1,0 +1,76 @@
+@import '../../App.scss';
+
+.newsletter{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: $width;
+    margin: 2rem 0 14rem 0;
+
+    aside{
+        position: relative;
+        font-family: $font;
+
+        img{
+            border-radius: $small-radius;
+        }
+
+        #five{
+            position: absolute;
+            top: calc(($height) * 0.13);
+            left: calc(($width) * -0.04);
+        }
+        #six{
+            margin: 0 0 0 calc(($width) * 0.7);
+        }
+
+        h1{
+            font-family: $font-two;
+            font-weight: 400;
+            font-size: $large-text;
+        }
+
+        p{
+            color: $gray;
+            margin: 0 0 2rem 0;
+        }
+
+
+        form{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            
+            label{
+                width: calc(($width) * 0.6);
+                #email{
+                    width: calc(($width) * 1.6);
+                    font-size: $text;
+                    padding: 0.7rem 1rem;
+                    outline: none;
+                    border: 0.02rem solid $gray;
+                    border-radius: $small-radius;
+                }
+                margin: 0.5rem 0;
+            }
+            
+            #signup{
+                padding: 1rem 0;
+                background: $main-color;
+                border-radius: $border-radius;
+                transition: all .5s ease-in;
+                color: $secondary-color;
+                text-decoration: none;
+                font-size: $text;
+                width: calc(($width) * 0.35);
+                text-align: center;
+                
+                &:hover{
+                    background: $accent-color;
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+}

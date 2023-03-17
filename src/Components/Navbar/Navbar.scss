@@ -38,6 +38,9 @@ header{
             background: $main-color;
             border-radius: $border-radius;
             transition: all .5s ease-in;
+            color: $secondary-color;
+            text-decoration: none;
+            font-size: $text;
 
             &:hover{
                 background: $accent-color;
