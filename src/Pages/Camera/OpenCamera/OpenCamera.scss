@@ -1,0 +1,89 @@
+@import '../../../App.scss';
+
+.OpenCamera {
+    width: $width;
+    height: $height;
+    background-color: $primary-color;
+    color: $secondary-color;
+    display: grid;
+    place-items: center;
+    text-align: center;
+
+    .back-btn {
+        position: absolute;
+        left: 3rem;
+        top: 3rem;
+    }
+
+    img {
+        cursor: pointer;
+    }
+
+    .OpenCamera-container {
+        position: relative;
+    }
+
+    .display-camera {
+        background-color: $gray;
+        position: relative;
+        height: $height * 0.6;
+        width: $width;
+        aspect-ratio: 3/4;
+        display: grid;
+        place-items: center;
+        border-radius: $border-radius;
+        overflow: hidden;
+
+        .frame {
+            z-index: 1;
+        }
+
+        video {
+            position: absolute;
+            height: 100%;
+            transform: scaleX(-1);
+        }
+    }
+
+    .display-camera p {
+        background-color: $secondary-color;
+        color: $primary-color;
+        border-radius: 9999px;
+        padding: .5rem;
+        z-index: 1;
+    }
+
+    .capture-btn {
+        position: relative;
+        top: -2rem;
+        transition: all 0.2s ease-in-out;
+
+        &:active {
+            transform: scale(.9);
+        }
+    }
+
+    .Effect {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        button {
+            outline: none;
+            border: none;
+            background-color: $red;
+            color: $secondary-color;
+            padding: 1rem;
+            font-size: $text;
+            border-radius: $border-radius;
+            cursor: pointer;
+        }
+    }
+
+    canvas {
+        height: $width * 0.6;
+        width: $width;
+        aspect-ratio: 3/4;
+    }
+}

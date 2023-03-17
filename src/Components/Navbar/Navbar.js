@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.scss'
+import logo from '../../assets/logo.svg'
 
 const Navbar = () => {
 
@@ -20,6 +21,9 @@ const Navbar = () => {
 
   return (
     <header className='navbar navbar-scrolled'>
+
+        <img src={logo} alt="" />
+
         <nav>
             <Link to='/' className='link'>Home</Link>
             <Link to='/' className='link'>Contact</Link>
