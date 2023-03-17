@@ -25,6 +25,14 @@
             border-radius: $small-radius;
         }
     }
+
+    .link{
+        position: absolute;
+        bottom: 0;
+        right: calc($width * 0.05);
+        color: $sub-color;
+        text-decoration: none;
+    }
 }
 
 @media screen and (max-width: 768px) {
