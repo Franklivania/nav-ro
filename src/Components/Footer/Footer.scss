@@ -36,6 +36,21 @@ footer{
         border-top: 0.001rem solid $secondary-color;
         width: $width;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    footer{
+        width: calc($width * 1);
+
+        .foot{
+            img{
+                display: none;
+            }
+        }
+    }
 }

@@ -14,10 +14,27 @@
     font-weight: 300;
     padding: 4rem 0;
 
-    aside{
-        width: calc(($width) * 0.8);
-        background: $sub-color;
-        padding: 1rem;
-        border-radius: $small-radius;
+    .slide{
+        width: $width;
+        display: grid;
+        place-items: center;
+        aside{
+            width: calc(($width) * 0.8);
+            background: $sub-color;
+            padding: 1rem;
+            border-radius: $small-radius;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tips{
+        width: calc($width * 1);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+        aside{
+            width: calc($width * 0.9);
+        }
     }
 }

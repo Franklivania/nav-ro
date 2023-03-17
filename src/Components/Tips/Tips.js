@@ -1,6 +1,7 @@
 import React from 'react'
 import './Tips.scss'
 import ok from '../../assets/ok.svg'
+import { Slide } from 'react-awesome-reveal'
 
 const Tips = () => {
 
@@ -31,10 +32,12 @@ const Tips = () => {
     <section className='tips'>
         {
             tips.map((tips, index) => (
-                <aside key={tips.id}>
-                    <img src={tips.image} alt="" />
-                    <p>{tips.text}</p>
-                </aside>
+                <Slide damping={0.1} className='slide' triggerOnce={true}>
+                    <aside key={tips.id}>
+                        <img src={tips.image} alt="" />
+                        <p>{tips.text}</p>
+                    </aside>
+                </Slide>
             ))
         }
     </section>

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.scss'
+import logo from '../../assets/logo.svg'
 
 const Footer = () => {
   return (
@@ -13,6 +14,7 @@ const Footer = () => {
         </div>
 
         <div className="foot">
+          <img src={logo} alt="" />
             <a href="">Terms of Service</a>
             <a href="">Privacy Policy</a>
         </div>

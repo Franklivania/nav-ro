@@ -74,3 +74,30 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .newsletter{
+        width: calc($width * 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        aside{
+            position: relative;
+            padding: 0 1rem;
+
+            #five{
+                left: calc($width * 0.03);
+            }
+
+            #six{
+                margin-left: 3rem;
+            }
+
+            h1{
+                margin: 10rem 0 0 0;
+            }
+        }
+    }
+}
