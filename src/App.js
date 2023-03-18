@@ -5,6 +5,7 @@ import OpenCamera from './Pages/Camera/OpenCamera/OpenCamera';
 import Landing from './Pages/Landing/Landing';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
+import VoiceAssitance from './Pages/VoiceAssistance/VoiceAssistance';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/signup' element={<SignUp />} />
             <Route path='/camera' element={<Camera />} />
             <Route path='/OpenCamera' element={<OpenCamera />} />
+            <Route path='/voice-assistance' element={<VoiceAssitance />} />
           </Routes>
         </Router>
     </div>
