@@ -7,7 +7,11 @@ const SkinTone = {
             g: 0,
             b: 0
         }
-    ]
+    ],
+
+    findColorestRGB: function(rgb, bounds) {
+        
+    }
 }
 
 export default SkinTone
