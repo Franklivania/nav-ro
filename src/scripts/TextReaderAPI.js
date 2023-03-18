@@ -13,7 +13,6 @@ const TextReaderAPI = {
         return voices
     },
 
-
     speak: function (text, sourceLanguage, voice, rate, pitch, volume) {
         // create a SpeechSynthesisUtterance to configure the how text to be spoken 
         let speakData = new SpeechSynthesisUtterance()

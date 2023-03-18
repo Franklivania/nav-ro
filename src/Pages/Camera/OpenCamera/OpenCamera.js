@@ -5,7 +5,29 @@ import frame from '../../../assets/cam-frame.svg'
 import capture from '../../../assets/cam-capture.svg'
 import { Link } from 'react-router-dom'
 
+import SkinTone from '../../../scripts/SkinTone'
+import FaceAPI from '../../../scripts/FaceAPI'
+
 const OpenCamera = () => {
+
+  const detectFaceColor = async () => {
+    await FaceAPI.faceColor()
+  }
+
+  detectFaceColor()
+
+  const detectFaceAttributes = async () => {
+    await FaceAPI.faceAttributes()
+  }
+
+  detectFaceAttributes()
+
+  const detectColor = () => {
+    const color = SkinTone.findClosestColor({ r: 96, g: 51, b: 40 })
+    if (color) console.log(color)
+  }
+
+  detectColor()
 
   let videoRef = useRef(null)
   let streamRef = useRef(null)
@@ -103,7 +125,7 @@ const OpenCamera = () => {
           <p>Please look into the camera and hold still</p>
         </div>
         <img src={capture} alt="" className='capture-btn'
-          // onClick={takePicture} 
+        // onClick={takePicture} 
         />
         <div className='Effect'>
           <button id='light' onClick={handleLightning}>Lightning</button>
