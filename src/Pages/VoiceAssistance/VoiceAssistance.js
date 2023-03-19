@@ -33,7 +33,7 @@ const VoiceAssitance = () => {
 
     setTimeout(() => {
         listen()
-    }, 10000);
+    }, 3000);
 
     return (
         <div className='container'>
