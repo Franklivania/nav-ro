@@ -8,12 +8,14 @@ import { Link } from 'react-router-dom'
 
 
 import StorageAPI from '../../../scripts/StorageAPI'
+import { async } from '@firebase/util'
 
 const OpenCamera = () => {
   const [processing, setProcessing] = useState(false)
   const [scanComplete, setScanComplete] = useState(false)
   const [resultUrl, setResultUrl] = useState('')
 
+  const inputFile = useRef(null)
   let videoRef = useRef(null)
   let streamRef = useRef(null)
 
@@ -93,6 +95,10 @@ const OpenCamera = () => {
     video.style.setProperty('--brightness', newBrightness);
   };
 
+  const pickImage = () => {
+    inputFile.current.click();
+  };
+
   const handlePosition = () => {
     const video = videoRef.current;
     const canvas = document.createElement('canvas');
@@ -128,6 +134,27 @@ const OpenCamera = () => {
     }
   };
 
+  const onChangeFile = async (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    
+    setProcessing(true)
+    setScanComplete(false)
+
+    const files = event.target.files
+    if (files.length > 0) {
+      try {
+        const url = await StorageAPI.upload(files[0], 'user.png')
+        setResultUrl(url)
+        setScanComplete(true)
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setProcessing(false)
+      }
+    }
+  }
+
   return (
     <div className='OpenCamera'>
       <Link to="/Camera"><img src={back} alt="" className='back-btn' onClick={stop} /></Link>
@@ -143,6 +170,8 @@ const OpenCamera = () => {
         <div className='Effect'>
           <button id='light' onClick={handleLightning}>Lightning</button>
           <button id='position' onClick={handlePosition}>Face Position</button>
+          <button id='position' onClick={pickImage}>Pick Image</button>
+          <input type='file' id='file' ref={inputFile} style={{ display: 'none' }} onChange={onChangeFile} />
         </div>
       </div>
 
