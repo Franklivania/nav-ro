@@ -6,44 +6,13 @@ import capture from '../../../assets/cam-capture.svg'
 import success from '../../../assets/success.gif'
 import { Link } from 'react-router-dom'
 
-import SkinTone from '../../../scripts/SkinTone'
-import FaceAPI from '../../../scripts/FaceAPI'
+
 import StorageAPI from '../../../scripts/StorageAPI'
 
 const OpenCamera = () => {
   const [processing, setProcessing] = useState(false)
   const [scanComplete, setScanComplete] = useState(false)
   const [resultUrl, setResultUrl] = useState('')
-
-  const getSkinTones = async (base64) => {
-    const faceData = await FaceAPI.faceColor(base64)
-    const foreColors = faceData.result.colors.foreground_colors
-
-    console.log(foreColors);
-
-    const tones = []
-
-    foreColors.forEach(color => {
-      if (color.closest_palette_color_parent === 'skin') {
-        const tone = SkinTone.findClosestColor({
-          r: color.r, g: color.g, b: color.b
-        })
-
-        if (tone) tones.push(tone)
-      }
-    })
-
-    return tones
-  }
-
-  // detectFaceColor()
-
-  const getSkinType = async (base64) => {
-    const faceData = await FaceAPI.faceAttributes(base64)
-    console.log(faceData);
-  }
-
-  // detectFaceAttributes()
 
   let videoRef = useRef(null)
   let streamRef = useRef(null)
@@ -102,12 +71,6 @@ const OpenCamera = () => {
     try {
       const blob = await getCanvasAsBlob(canvas)
       const url = await StorageAPI.upload(blob, 'user.png')
-
-      const tones = await getSkinTones(url)
-      const type = await getSkinType(url)
-
-      console.log(tones, type);
-
       setResultUrl(url)
       setScanComplete(true)
     } catch (error) {
@@ -184,21 +147,21 @@ const OpenCamera = () => {
       </div>
 
       {processing && (
-      <div className="modal">
-        <div className="box">
-          <p>Processing Image...</p>
+        <div className="modal">
+          <div className="box">
+            <p>Processing Image...</p>
+          </div>
         </div>
-      </div>
-    )}
-    {scanComplete && (
-      <div className="modal">
-        <div className="box">
-          <img src={success} alt="" />
-          <p>Scan Complete</p>
-          <Link to='/results' className='results'>See Results</Link>
+      )}
+      {scanComplete && (
+        <div className="modal">
+          <div className="box">
+            <img src={success} alt="" />
+            <p>Scan Complete</p>
+            <Link to={`/results?faceurl=${resultUrl}`} className='results'>See Results</Link>
+          </div>
         </div>
-      </div>
-    )}
+      )}
 
     </div>
   )

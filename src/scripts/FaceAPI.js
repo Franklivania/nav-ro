@@ -32,6 +32,7 @@ const FaceAPI = {
         try {
             const API_KEY = 'RL86k-2luYJBrcRvIUR_dLMBHbQTPWgb'
             const API_SECRET = 'Q7VsGqWnO0JSt8oe9bqTp1usULLrNa8D'
+            
             const response = await axios.post(`https://api-us.faceplusplus.com/facepp/v1/skinanalyze?api_key=${API_KEY}&api_secret=${API_SECRET}&image_url=${IMAGE_URL}`)
          
             return response.data
