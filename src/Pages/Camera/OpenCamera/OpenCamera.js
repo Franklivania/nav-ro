@@ -7,27 +7,39 @@ import { Link } from 'react-router-dom'
 
 import SkinTone from '../../../scripts/SkinTone'
 import FaceAPI from '../../../scripts/FaceAPI'
+import StorageAPI from '../../../scripts/StorageAPI'
 
 const OpenCamera = () => {
 
-  const detectFaceColor = async () => {
-    await FaceAPI.faceColor()
+  const getSkinTones = async (base64) => {
+    const faceData = await FaceAPI.faceColor(base64)
+    const foreColors = faceData.result.colors.foreground_colors
+
+    console.log(foreColors);
+
+    const tones = []
+
+    foreColors.forEach(color => {
+      if (color.closest_palette_color_parent === 'skin') {
+        const tone = SkinTone.findClosestColor({
+          r: color.r, g: color.g, b: color.b
+        })
+
+        if (tone) tones.push(tone)
+      }
+    })
+
+    return tones
   }
 
-  detectFaceColor()
+  // detectFaceColor()
 
-  const detectFaceAttributes = async () => {
-    await FaceAPI.faceAttributes()
+  const getSkinType = async (base64) => {
+    const faceData = await FaceAPI.faceAttributes(base64)
+    console.log(faceData);
   }
 
-  detectFaceAttributes()
-
-  const detectColor = () => {
-    const color = SkinTone.findClosestColor({ r: 96, g: 51, b: 40 })
-    if (color) console.log(color)
-  }
-
-  detectColor()
+  // detectFaceAttributes()
 
   let videoRef = useRef(null)
   let streamRef = useRef(null)
@@ -72,6 +84,33 @@ const OpenCamera = () => {
     }
   };
 
+  const takePicture = async () => {
+    const video = videoRef.current;
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height)
+
+    try {
+      const blob = await getCanvasAsBlob(canvas)
+      const url = await StorageAPI.upload(blob, 'user.png')
+
+      const tones = await getSkinTones(url)
+      const type = await getSkinType(url)
+
+      console.log(tones, type);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const getCanvasAsBlob = (canvas) => {
+    return new Promise((resolve) => {
+      canvas.toBlob(resolve);
+    });
+  }
+
   const handleLightning = () => {
     const video = videoRef.current;
     const currentBrightness = video.style.getPropertyValue('--brightness');
@@ -114,7 +153,6 @@ const OpenCamera = () => {
     }
   };
 
-
   return (
     <div className='OpenCamera'>
       <Link to="/Camera"><img src={back} alt="" className='back-btn' onClick={stop} /></Link>
@@ -125,7 +163,7 @@ const OpenCamera = () => {
           <p>Please look into the camera and hold still</p>
         </div>
         <img src={capture} alt="" className='capture-btn'
-        // onClick={takePicture} 
+          onClick={takePicture}
         />
         <div className='Effect'>
           <button id='light' onClick={handleLightning}>Lightning</button>
