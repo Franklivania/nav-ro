@@ -35,7 +35,7 @@ const Navbar = () => {
 
         <aside>
           <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
-          <Link to='/voice-assistance' id='login'>Voise Assitance</Link>
+          <Link to='/voice-assistance' id='voice'>Voise Assitance</Link>
           <Link to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
         </aside>
       </menu>
@@ -50,6 +50,7 @@ const Navbar = () => {
 
           <aside>
             <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
+            <Link to='/voice-assistance' id='voice'>Voise Assitance</Link>
             <Link to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
           </aside>
         </menu>

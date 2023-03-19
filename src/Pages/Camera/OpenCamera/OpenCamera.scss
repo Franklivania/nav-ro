@@ -86,4 +86,55 @@
         width: $width;
         aspect-ratio: 3/4;
     }
+
+    .modal{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: $height;
+        width: $width;
+        background: rgba($primary-color, 0.5);
+        display: grid;
+        place-items: center;
+        z-index: 11;
+
+        .box{
+            position: relative;
+            z-index: 100;
+            height: calc($height * 0.3);
+            width: calc($width * 0.2);
+            background: $secondary-color;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: $main-color;
+            border-radius: $small-radius;
+
+            img{
+                width: calc($width * 0.3);
+            }
+
+            .results{
+                text-decoration: none;
+                padding: 0.3rem 1.2rem;
+                margin: 3em 0 0 0;
+                color: $secondary-color;
+                background: $green;
+                border-radius: $small-radius;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .OpenCamera{
+        .modal{
+
+            .box{
+                height: calc($height * 0.3);
+                width: calc($width * 0.7);
+            }
+        }
+    }
 }

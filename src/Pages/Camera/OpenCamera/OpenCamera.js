@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './OpenCamera.scss'
 import back from '../../../assets/cam-back.svg'
 import frame from '../../../assets/cam-frame.svg'
 import capture from '../../../assets/cam-capture.svg'
+import success from '../../../assets/success.gif'
 import { Link } from 'react-router-dom'
 
 import SkinTone from '../../../scripts/SkinTone'
@@ -10,6 +11,9 @@ import FaceAPI from '../../../scripts/FaceAPI'
 import StorageAPI from '../../../scripts/StorageAPI'
 
 const OpenCamera = () => {
+  const [processing, setProcessing] = useState(false)
+  const [scanComplete, setScanComplete] = useState(false)
+  const [resultUrl, setResultUrl] = useState('')
 
   const getSkinTones = async (base64) => {
     const faceData = await FaceAPI.faceColor(base64)
@@ -85,6 +89,9 @@ const OpenCamera = () => {
   };
 
   const takePicture = async () => {
+    setProcessing(true)
+    setScanComplete(false)
+
     const video = videoRef.current;
     const canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
@@ -100,8 +107,13 @@ const OpenCamera = () => {
       const type = await getSkinType(url)
 
       console.log(tones, type);
+
+      setResultUrl(url)
+      setScanComplete(true)
     } catch (error) {
       console.error(error);
+    } finally {
+      setProcessing(false)
     }
   }
 
@@ -170,6 +182,24 @@ const OpenCamera = () => {
           <button id='position' onClick={handlePosition}>Face Position</button>
         </div>
       </div>
+
+      {processing && (
+      <div className="modal">
+        <div className="box">
+          <p>Processing Image...</p>
+        </div>
+      </div>
+    )}
+    {scanComplete && (
+      <div className="modal">
+        <div className="box">
+          <img src={success} alt="" />
+          <p>Scan Complete</p>
+          <Link to='/results' className='results'>See Results</Link>
+        </div>
+      </div>
+    )}
+
     </div>
   )
 }
