@@ -2,6 +2,7 @@ import React from 'react'
 import './Tips.scss'
 import ok from '../../assets/ok.svg'
 import { Slide } from 'react-awesome-reveal'
+import { Link } from 'react-router-dom'
 
 const Tips = () => {
 
@@ -37,9 +38,11 @@ const Tips = () => {
                         <img src={tips.image} alt="" />
                         <p>{tips.text}</p>
                     </aside>
+
                 </Slide>
             ))
         }
+        <Link to='' className='link'>Learn More <i class="fa-solid fa-arrow-right"></i></Link>
     </section>
   )
 }
