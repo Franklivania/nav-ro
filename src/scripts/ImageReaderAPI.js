@@ -6,7 +6,7 @@ const ImageReaderAPI = {
         const apiSecret = '2c5cbd76dcf0587aaae3e3da19c4d351';
 
         try {
-            const response = await axios.get(`https://api.imagga.com/v2/text?image_url=${IMAGE_URL}`, {
+            const response = await axios.get(`https://navro.onrender.com/products/readtext?image_url=${IMAGE_URL}`, {
                 auth: {
                     username: apiKey,
                     password: apiSecret

@@ -24,7 +24,7 @@ const ReadText = () => {
             const result = await ImageReaderAPI.getTextFrom(url)
             console.log(result);
             if (result) {
-                setTexts(result.result.text)
+                setTexts(result.data.result.text)
             }
         }
 
