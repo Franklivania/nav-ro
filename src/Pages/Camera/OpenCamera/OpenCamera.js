@@ -72,7 +72,7 @@ const OpenCamera = () => {
 
     try {
       const blob = await getCanvasAsBlob(canvas)
-      const url = await StorageAPI.upload(blob, 'user.png')
+      const url = await StorageAPI.upload(blob, getRandomInt().toString())
       setResultUrl(url)
       setScanComplete(true)
     } catch (error) {
@@ -137,14 +137,14 @@ const OpenCamera = () => {
   const onChangeFile = async (event) => {
     event.stopPropagation();
     event.preventDefault();
-    
+
     setProcessing(true)
     setScanComplete(false)
 
     const files = event.target.files
     if (files.length > 0) {
       try {
-        const url = await StorageAPI.upload(files[0], 'user.png')
+        const url = await StorageAPI.upload(files[0], getRandomInt().toString())
         setResultUrl(url)
         setScanComplete(true)
       } catch (error) {
@@ -153,6 +153,10 @@ const OpenCamera = () => {
         setProcessing(false)
       }
     }
+  }
+
+  const getRandomInt = () => {
+    return Math.floor(Math.random() * 1000);
   }
 
   return (

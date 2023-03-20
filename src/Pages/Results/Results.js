@@ -14,6 +14,8 @@ const Results = () => {
 
   const getSkinTone = async (base64) => {
     const faceData = await FaceAPI.faceColor(base64)
+    console.log(faceData);
+
     if (!faceData) return null
 
     const foreColors = faceData.result.colors.foreground_colors
@@ -24,6 +26,8 @@ const Results = () => {
         r: color.r, g: color.g, b: color.b
       })
 
+      console.log(tone);
+
       if (tone) tones.push(tone)
     })
 
@@ -33,6 +37,8 @@ const Results = () => {
 
   const getAttributes = async (url) => {
     const attr = await FaceAPI.faceAttributes(url)
+    console.log(attr);
+
     return {
       skintype: attr.result.skin_type.skin_type,
       skinspot: attr.result.skin_spot.value,
@@ -92,7 +98,7 @@ const Results = () => {
         return
       }
 
-      setProducts(result)
+      setProducts(result.data)
 
       console.log(skinAttributes);
       console.log(products);

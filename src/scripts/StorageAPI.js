@@ -23,7 +23,6 @@ const StorageAPI = {
         const firebaseApp = initializeApp(firebaseConfig);
         getAnalytics(firebaseApp);
 
-        // Return a promise that will either resolve or emit an error
         return new Promise((resolve, reject) => {
             console.log('Uploading video ...');
             const storage = getStorage();
@@ -36,14 +35,12 @@ const StorageAPI = {
                 },
                 (error) => {
                     console.log(error);
-                    // An error occurred so inform the caller
                     console.error('firebase', error);
                     reject(error);
                 },
                 async () => {
                     await getDownloadURL(uploadTask.snapshot.ref)
                     resolve(`https://storage.googleapis.com/crossart-aea81.appspot.com/faces/${name}`);
-                    // console.log(url);
                 }
             );
         });
