@@ -7,6 +7,7 @@ import user from '../../assets/user.svg'
 import lock from '../../assets/lock.svg'
 import arrow_right from '../../assets/arrow-right.svg'
 import { Link, useNavigate } from 'react-router-dom'
+import TextReaderAPI from '../../scripts/TextReaderAPI'
 
 
 const SignUp = () => {
@@ -37,8 +38,8 @@ const SignUp = () => {
             <form onSubmit={handleSubmit}>
                 <div className='upper-part'>
                     <label>
-                        <h3>Getting Started</h3>
-                        <p>Create an account to continue</p>
+                        <h3 onMouseEnter={() => TextReaderAPI.readText('Gettting started')}>Getting Started</h3>
+                        <p onMouseEnter={() => TextReaderAPI.readText('Create an account to continue')}>Create an account to continue</p>
                     </label>
 
                     <label className='social-links'>
@@ -47,7 +48,7 @@ const SignUp = () => {
                         <a href="/"><img src={twitter} alt="" /></a>
                     </label>
 
-                    <label htmlFor="text">
+                    <label onMouseEnter={() => TextReaderAPI.readText('Enter username here')} htmlFor="text">
                         <img src={user} alt="" />
                         <div htmlFor="text" className="float-text">
                             <input type="text" id='text' value={name} onChange={(e) => setName(e.target.value)} />
@@ -55,7 +56,7 @@ const SignUp = () => {
                         </div>
                     </label>
 
-                    <label htmlFor="password">
+                    <label onMouseEnter={() => TextReaderAPI.readText('Enter password here')} htmlFor="password">
                         <img src={lock} alt="" />
                         <div className="float-text">
                             <input type={password_show ? "text" : "password"} id='password' value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -64,7 +65,7 @@ const SignUp = () => {
                         <i className={password_show ? 'fas fa-eye' : 'fas fa-eye-slash'} onClick={passShow}></i>
                     </label>
 
-                    <label htmlFor="ConfirmPassword">
+                    <label onMouseEnter={() => TextReaderAPI.readText('Enter confirmation password here')} htmlFor="ConfirmPassword">
                         <img src={lock} alt="" />
                         <div className="float-text">
                             <input type={confirm_password_show ? "text" : "password"} id='ConfirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
@@ -74,7 +75,7 @@ const SignUp = () => {
                     </label>
                 </div>
 
-                <p>By clicking "signup" I agree to Terma & Conditions and Privacy Policy.</p>
+                <p onMouseEnter={() => TextReaderAPI.readText('Agree to terms and conditions')}>By clicking "signup" I agree to Terms & Conditions and Privacy Policy.</p>
 
                 <div className='bottom-part'>
                     <label className='social-links'>
@@ -85,8 +86,8 @@ const SignUp = () => {
                         <span></span>
                     </label>
                 </div>
-                <button type="submit">Signup <img src={arrow_right} alt="" /></button>
-                <p>Already have an account? <Link to='/login'className='link'>Login</Link> </p>
+                <button type="submit" onMouseEnter={() => TextReaderAPI.readText('Sign up')}>Signup <img src={arrow_right} alt="" /></button>
+                <p onMouseEnter={() => TextReaderAPI.readText('Already have an account')}>Already have an account? <Link to='/login'className='link'>Login</Link> </p>
             </form>
         </div>
     )
