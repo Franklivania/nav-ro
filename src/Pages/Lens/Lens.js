@@ -16,9 +16,9 @@ const Camera = () => {
         <div className='camera'>
             <div className='cam-container'>
                 <h3 onMouseEnter={() => TextReaderAPI.readText('Read text from product image')}>Read text from product image</h3>
-                <p onMouseEnter={() => TextReaderAPI.readText('Get insights into their skin color and variety of products that suit their skin type.')}>Get insights into their skin color<br />
-                    and variety of products that suit<br />
-                    their skin type.</p>
+                <p onMouseEnter={() => TextReaderAPI.readText('Get insights into their skin color and variety of products that suit their skin type.')}>Read text from items<br />
+                    like skin care products<br />
+                   or others.</p>
                 <Link to="/OpenLens"><img src={camera_onClick} alt="" onClick={display} /></Link>
                 <p>Tap to scan your product</p>
             </div>
