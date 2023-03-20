@@ -3,6 +3,7 @@ import './Tips.scss'
 import ok from '../../assets/ok.svg'
 import { Slide } from 'react-awesome-reveal'
 import { Link } from 'react-router-dom'
+import TextReaderAPI from '../../scripts/TextReaderAPI'
 
 const Tips = () => {
 
@@ -34,9 +35,9 @@ const Tips = () => {
         {
             tips.map((tips, index) => (
                 <Slide damping={0.1} className='slide' triggerOnce={true}>
-                    <aside key={tips.id}>
+                    <aside onMouseEnter={() => TextReaderAPI.readText(tips.text)} key={tips.id}>
                         <img src={tips.image} alt="" />
-                        <p>{tips.text}</p>
+                        <span>{tips.text}</span>
                     </aside>
 
                 </Slide>

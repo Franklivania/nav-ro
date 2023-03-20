@@ -16,10 +16,10 @@ const TextReaderAPI = {
     speak: function (text, sourceLanguage, voice, rate, pitch, volume) {
         // create a SpeechSynthesisUtterance to configure the how text to be spoken 
         let speakData = new SpeechSynthesisUtterance()
-        
-        speakData.volume = volume // From 0 to 1
-        speakData.rate = rate // From 0.1 to 10
-        speakData.pitch = pitch // From 0 to 2
+
+        speakData.volume = volume
+        speakData.rate = rate
+        speakData.pitch = pitch
         speakData.text = text
         speakData.lang = sourceLanguage
         speakData.voice = voice
@@ -28,9 +28,18 @@ const TextReaderAPI = {
         speechSynthesis.speak(speakData)
     },
 
+    voiceLocal: function () {
+        if (typeof (Storage) !== "undefined") {
+            return localStorage.getItem("voice") === "true"
+        }
+        return false
+    },
+
     readText: function (text, sourceLanguage = 'en') {
+        if (!this.voiceLocal()) return
         if ('speechSynthesis' in window) {
             const voices = this.getVoices()
+
             const rate = 1, pitch = 2, volume = 1
 
             this.speak(text, sourceLanguage, voices[0], rate, pitch, volume)

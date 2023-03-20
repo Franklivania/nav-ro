@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Login.scss'
 import lock from '../../assets/lock.svg'
 import user from '../../assets/user.svg'
+import TextReaderAPI from '../../scripts/TextReaderAPI'
 
 const Login = () => {
 
@@ -37,30 +38,32 @@ const Login = () => {
             Welcome Back
           </h1>
 
-          <label htmlFor="text" className={`floating-label ${isTextActive || text ? 'active' : ''}`}>
+          <label onMouseEnter={() => TextReaderAPI.readText('Enter uername here')} htmlFor="text" className={`floating-label ${isTextActive || text ? 'active' : ''}`}>
+            <img src={user} alt="" />
             <input type="text" name="text" id="text" value={text} onChange={(e) => setText(e.target.value)} onClick={handleTextClick} />
-            <span className={text ? 'active' : ''}> <img src={user} alt="" /> Enter Username</span>
+            <span className={text ? 'active' : ''}> Enter Username</span>
           </label>
 
-          <label htmlFor="password" className={`floating-label ${isPasswordActive || password ? 'active' : ''}`}>
+          <label onMouseEnter={() => TextReaderAPI.readText('Enter password here')} htmlFor="password" className={`floating-label ${isPasswordActive || password ? 'active' : ''}`}>
+            <img src={lock} alt="" />
             <input type={showPassword ? 'text' : 'password'} name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} onClick={handlePasswordClick} />
-            <span className={password ? 'active' : ''}> <img src={lock} alt="" /> Password</span>
+            <span className={password ? 'active' : ''}> Password</span>
             <i className={showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'} onClick={handleShowPassword}></i>
           </label>
 
 
           <section>
-            <label htmlFor="check">
+            <label onMouseEnter={() => TextReaderAPI.readText('Remmeber me')} htmlFor="check">
               <input type="checkbox" name="check" id="check" />
               Remember me
             </label>
 
-            <Link to='/' id='forgot'>Forgot Password</Link>
+            <Link onMouseEnter={() => TextReaderAPI.readText('Forgot password')} to='/' id='forgot'>Forgot Password</Link>
           </section>
           
-          <button type="submit">Login <i className="fa-solid fa-arrow-right"></i></button>
+          <button onMouseEnter={() => TextReaderAPI.readText('Login')} type="submit">Login <i className="fa-solid fa-arrow-right"></i></button>
 
-          <p>Don't have an account? &nbsp; <Link to='/signup' id='sign'>Sign up</Link></p>
+          <p onMouseEnter={() => TextReaderAPI.readText('Don\'t have an account? Sign up')}>Don't have an account? &nbsp; <Link to='/signup' id='sign'>Sign up</Link></p>
 
         </form>
     </div>

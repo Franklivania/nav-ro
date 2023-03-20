@@ -4,6 +4,8 @@ import five from '../../assets/five.svg'
 import six from '../../assets/six.svg'
 import { Link } from 'react-router-dom'
 import { Slide } from 'react-awesome-reveal'
+import TextReaderAPI from '../../scripts/TextReaderAPI'
+
 
 const Newsletter = () => {
   return (
@@ -17,11 +19,11 @@ const Newsletter = () => {
 
         <Slide direction='right'>
             <aside>
-                <h1> Newsletter </h1>
+                <h1 onMouseEnter={() => TextReaderAPI.readText('Newsletter')}> Newsletter </h1>
                 
-                <p>Receive the latest highlights, care tips, inspirations and offers</p>
+                <p onMouseEnter={() => TextReaderAPI.readText('Receive the latest highlights, care tips, inspirations and offers')}>Receive the latest highlights, care tips, inspirations and offers</p>
 
-                <form action="">
+                <form action="" onMouseEnter={() => TextReaderAPI.readText('Enter email address')}>
                     <label htmlFor="">
                         <input type="email" name="email" id="email" placeholder='Enter email address' />
                     </label>

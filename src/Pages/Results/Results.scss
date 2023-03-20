@@ -1,0 +1,216 @@
+@import '../../App.scss';
+
+.results{
+    position: relative;
+    width: $width;
+    background: $secondary-color;
+    font-family: $font !important;
+    // background: rgba($accent-color, 0.5);
+    padding: 0 0 5rem 0;
+
+    .r_container{
+        position: relative;
+        width: $width;
+        padding-top: calc($height * 0.2);
+
+        .r_page{
+            position: relative;
+
+            .skin{
+                display: flex;
+                flex-direction: column;
+                width: $width;
+
+                h3{
+                    text-align: center;
+                    font-size: $large-text;
+                    font-family: $font;
+                }
+
+                .profile{
+                    display: flex;
+                    align-items: center;
+                    // justify-content: space-between;
+                    padding: 1rem;
+                    background: rgba($sub-color, 0.6);
+                    margin: 0 2rem;
+                    border-radius: $small-radius;
+
+                    .image{
+                        
+                        .color{
+                            border-radius: $small-radius;
+                            text-align: center;
+                            color: $secondary-color;
+                            padding: 0.3rem 0;
+                            background: $main-color;
+                        }
+                    }
+
+                    .attr{
+                        margin-left: calc($width * 0.2);
+                        border: 0.02rem solid $sub-color;
+                        width: calc($width * 0.25);
+                        height: calc($height * 0.3);
+                        padding: 0.5rem;
+                        border-radius: $small-radius;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        color: $main-color;
+                        font-size: $text;
+
+
+                        p{
+                            padding: 0.5rem 0;
+
+                            span{
+                                padding: 0.3rem 0.7rem;
+                                background: $main-color;
+                                color: $secondary-color;
+                                border-radius: $border-radius;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .recommend{
+                position: relative;
+                width: $width;
+                margin-top: calc($height * 0.1);
+
+                h3{
+                    text-align: center;
+                    font-size: $large-text;
+                }
+
+                .products{
+                    position: relative;
+                    // width: $width;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+                    gap: 2rem;
+                    margin: 2rem;
+                    width: calc($width * 0.5);
+
+                    #path{
+                        text-decoration: none;
+                    }
+                    
+                    .product{
+                        width: $width;
+                        // height: calc($height * 0.6);
+                        padding: 1rem;
+                        border: 0.02rem solid $main-color;
+                        border-radius: $small-radius;
+                        transition: all .3s ease-in-out;
+
+                        &:hover{
+                            background: rgba($sub-color, 0.8);
+                            color: $secondary-color !important;
+                            transform: scale(1.02);
+                        }
+
+                        .r_image{
+                            position: relative;
+
+                            span, img{
+                                width: $width;
+                            }
+
+                            span{
+                                background: $primary-color;
+                                color: $secondary-color;
+                                border-radius: $border-radius;
+                                padding: 0.3rem 0.7rem;
+                            }
+                        }
+
+                        .detail{
+                            position: relative;
+                            font-family: $font;
+                            font-size: $text;
+
+                            p, h3{
+                                text-decoration: none;
+                            }
+
+                            .brand{
+                                padding: 0.3rem 1rem;
+                                background: $accent-color;
+                                color: $secondary-color;  
+                            }
+
+                            h3{
+                                font-size: $text;
+                                color: $main-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .results{
+        position: relative;
+
+        .r_container{
+            position: relative;
+
+            .r_page{
+                position: relative;
+                width: $width;
+                
+                .skin{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .profile{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: calc($width * 1);
+
+                        .image{
+                            margin-bottom: calc($height * 0.02);
+                            width: $width;
+
+                            img{
+                                width: $width;
+                            }
+                        }
+
+                        .attr{
+                            width: calc($width * 1);
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .recommend{
+                    position: relative;
+                    width: $width;
+
+                    .products{
+                        position: relative;
+                        
+                        .product{    
+                            position: relative;
+                            width: $width;
+                            display: grid;
+                            place-items: center;
+                            width: calc($width * 0.93); 
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+}
