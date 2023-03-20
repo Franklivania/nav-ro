@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.scss'
 import logo from '../../assets/logo.svg'
 import { Slide } from 'react-awesome-reveal'
+import TextReaderAPI from '../../scripts/TextReaderAPI'
 
 const Navbar = () => {
 
@@ -21,6 +22,42 @@ const Navbar = () => {
   }
   window.addEventListener('scroll', toggleNavbarBackground);
 
+  const [voice, setVoice] = useState('false')
+
+  const voiceLocal = () => {
+    if (typeof (Storage) !== "undefined") {
+      return localStorage.getItem("voice") === "true"
+    }
+    return false
+  }
+
+  useEffect(() => {
+    console.log(voiceLocal());
+    if (voiceLocal()) {
+      setVoice('true')
+    } else {
+      setVoice('false')
+    }
+
+  }, [])
+
+  const setVoiceLocal = (value) => {
+    if (typeof (Storage) !== "undefined") {
+      localStorage.setItem("voice", value)
+    }
+  }
+
+  const onVoiceSetting = (event) => {
+    const option = event.target.checked
+    if (option) {
+      setVoice('true')
+      setVoiceLocal('true')
+    } else {
+      setVoice('false')
+      setVoiceLocal('false')
+    }
+  }
+
 
   return (
     <header className='navbar navbar-scrolled'>
@@ -29,14 +66,21 @@ const Navbar = () => {
 
       <menu className='menu'>
         <nav>
-          <Link to='/' className='link'>Home</Link>
-          <Link to='/' className='link'>Contact</Link>
+          <Link to='/' onMouseEnter={() => TextReaderAPI.readText('Home')} className='link'>Home</Link>
+          <Link to='/' onMouseEnter={() => TextReaderAPI.readText('Contact')} className='link'>Contact</Link>
         </nav>
 
         <aside>
           <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
-          <Link to='/voice-assistance' id='voice'>Voise Assitance</Link>
-          <Link to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
+          <Link onMouseEnter={() => TextReaderAPI.readText('Voice Assistance')} to='/voice-assistance' id='voice'>Voice Assitance</Link>
+          <voice onMouseEnter={() => TextReaderAPI.readText('Use text reader')} className="voice">
+            <p>Use Text Reader</p>
+            <label class="switch">
+              <input checked={voice === 'true'} type="checkbox" onChange={onVoiceSetting} />
+              <span class="slider round"></span>
+            </label>
+          </voice>
+          <Link onMouseEnter={() => TextReaderAPI.readText('Login')} to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
         </aside>
       </menu>
 
@@ -50,8 +94,15 @@ const Navbar = () => {
 
           <aside>
             <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
-            <Link to='/voice-assistance' id='voice'>Voise Assitance</Link>
-            <Link to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
+            <Link onMouseEnter={() => TextReaderAPI.readText('Voice Assistance')} to='/voice-assistance' id='voice'>Voice Assitance</Link>
+            <voice onMouseEnter={() => TextReaderAPI.readText('Use text reader')} className="voice">
+            <p>Use Text Reader</p>
+            <label class="switch">
+              <input checked={voice === 'true'} type="checkbox" onChange={onVoiceSetting} />
+              <span class="slider round"></span>
+            </label>
+          </voice>
+            <Link onMouseEnter={() => TextReaderAPI.readText('Login')} to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
           </aside>
         </menu>
       )}

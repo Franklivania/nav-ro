@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 
 import StorageAPI from '../../../scripts/StorageAPI'
 import { async } from '@firebase/util'
+import TextReaderAPI from '../../../scripts/TextReaderAPI'
 
 const OpenCamera = () => {
   const [processing, setProcessing] = useState(false)
@@ -172,15 +173,15 @@ const OpenCamera = () => {
           onClick={takePicture}
         />
         <div className='Effect'>
-          <button id='light' onClick={handleLightning}>Lightning</button>
-          <button id='position' onClick={handlePosition}>Face Position</button>
-          <button id='position' onClick={pickImage}>Pick Image</button>
+          <button id='light' onMouseEnter={() => TextReaderAPI.readText('Lightning')} onClick={handleLightning}>Lightning</button>
+          <button id='position' onMouseEnter={() => TextReaderAPI.readText('Face Position')} onClick={handlePosition}>Face Position</button>
+          <button id='position' onClick={pickImage} onMouseEnter={() => TextReaderAPI.readText('Pick Image')}>Pick Image</button>
           <input type='file' id='file' ref={inputFile} style={{ display: 'none' }} onChange={onChangeFile} />
         </div>
       </div>
 
       {processing && (
-        <div className="modal">
+        <div onMouseEnter={() => TextReaderAPI.readText('Processing image')} className="modal">
           <div className="box">
             <p>Processing Image...</p>
           </div>
@@ -188,7 +189,7 @@ const OpenCamera = () => {
       )}
       {scanComplete && (
         <div className="modal">
-          <div className="box">
+          <div onMouseEnter={() => TextReaderAPI.readText('See results')} className="box">
             <img src={success} alt="" />
             <p>Scan Complete</p>
             <Link to={`/results?faceurl=${resultUrl}`} className='results'>See Results</Link>
