@@ -167,7 +167,10 @@ const OpenCamera = () => {
         <div className='display-camera'>
           <video ref={videoRef}></video>
           <img src={frame} alt="" className='frame' />
-          <p>Please look into the camera and hold still</p>
+          <p>
+            Please look into the camera and hold still. Ensure your
+            face is in the white box, or upload a clear image of yourself.
+          </p>
         </div>
         <img src={capture} alt="" className='capture-btn'
           onClick={takePicture}

@@ -32,9 +32,22 @@ const SignUp = () => {
         navigate('/camera')
     }
 
+    const lensStyle = {
+        position: 'fixed',
+        top: '20%',
+        right: '10%',
+        padding: '1rem',
+        background: '#A85C3A',
+        color: '#fefefe',
+        borderRadius: '20%',
+        boxShadow: '0.02rem 0.02rem 0.5rem #0e0e0e',
+        transition: 'all 0.3s ease-in-out',
+      }
+
 
     return (
         <div className='SignUp'>
+            <Link to='/lens' onMouseEnter={() => TextReaderAPI.readText('Lens')} style={lensStyle}><i class="fa-solid fa-camera fa-2x "></i></Link>
             <form onSubmit={handleSubmit}>
                 <div className='upper-part'>
                     <label>

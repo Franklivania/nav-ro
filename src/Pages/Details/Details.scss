@@ -3,6 +3,7 @@
 .container {
     display: flex;
     justify-content: center;
+    padding-top: calc($width * 0.15);
 }
 
 .grid {
