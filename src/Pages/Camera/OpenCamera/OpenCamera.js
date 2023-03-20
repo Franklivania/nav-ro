@@ -8,12 +8,15 @@ import { Link } from 'react-router-dom'
 
 
 import StorageAPI from '../../../scripts/StorageAPI'
+import { async } from '@firebase/util'
+import TextReaderAPI from '../../../scripts/TextReaderAPI'
 
 const OpenCamera = () => {
   const [processing, setProcessing] = useState(false)
   const [scanComplete, setScanComplete] = useState(false)
   const [resultUrl, setResultUrl] = useState('')
 
+  const inputFile = useRef(null)
   let videoRef = useRef(null)
   let streamRef = useRef(null)
 
@@ -70,7 +73,7 @@ const OpenCamera = () => {
 
     try {
       const blob = await getCanvasAsBlob(canvas)
-      const url = await StorageAPI.upload(blob, 'user.png')
+      const url = await StorageAPI.upload(blob, getRandomInt().toString())
       setResultUrl(url)
       setScanComplete(true)
     } catch (error) {
@@ -91,6 +94,10 @@ const OpenCamera = () => {
     const currentBrightness = video.style.getPropertyValue('--brightness');
     const newBrightness = currentBrightness ? (parseFloat(currentBrightness) + 0.1) : 0.1;
     video.style.setProperty('--brightness', newBrightness);
+  };
+
+  const pickImage = () => {
+    inputFile.current.click();
   };
 
   const handlePosition = () => {
@@ -128,6 +135,31 @@ const OpenCamera = () => {
     }
   };
 
+  const onChangeFile = async (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    setProcessing(true)
+    setScanComplete(false)
+
+    const files = event.target.files
+    if (files.length > 0) {
+      try {
+        const url = await StorageAPI.upload(files[0], getRandomInt().toString())
+        setResultUrl(url)
+        setScanComplete(true)
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setProcessing(false)
+      }
+    }
+  }
+
+  const getRandomInt = () => {
+    return Math.floor(Math.random() * 1000);
+  }
+
   return (
     <div className='OpenCamera'>
       <Link to="/Camera"><img src={back} alt="" className='back-btn' onClick={stop} /></Link>
@@ -141,13 +173,15 @@ const OpenCamera = () => {
           onClick={takePicture}
         />
         <div className='Effect'>
-          <button id='light' onClick={handleLightning}>Lightning</button>
-          <button id='position' onClick={handlePosition}>Face Position</button>
+          <button id='light' onMouseEnter={() => TextReaderAPI.readText('Lightning')} onClick={handleLightning}>Lightning</button>
+          <button id='position' onMouseEnter={() => TextReaderAPI.readText('Face Position')} onClick={handlePosition}>Face Position</button>
+          <button id='position' onClick={pickImage} onMouseEnter={() => TextReaderAPI.readText('Pick Image')}>Pick Image</button>
+          <input type='file' id='file' ref={inputFile} style={{ display: 'none' }} onChange={onChangeFile} />
         </div>
       </div>
 
       {processing && (
-        <div className="modal">
+        <div onMouseEnter={() => TextReaderAPI.readText('Processing image')} className="modal">
           <div className="box">
             <p>Processing Image...</p>
           </div>
@@ -155,7 +189,7 @@ const OpenCamera = () => {
       )}
       {scanComplete && (
         <div className="modal">
-          <div className="box">
+          <div onMouseEnter={() => TextReaderAPI.readText('See results')} className="box">
             <img src={success} alt="" />
             <p>Scan Complete</p>
             <Link to={`/results?faceurl=${resultUrl}`} className='results'>See Results</Link>
