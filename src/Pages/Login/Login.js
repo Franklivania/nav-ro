@@ -39,13 +39,15 @@ const Login = () => {
           </h1>
 
           <label onMouseEnter={() => TextReaderAPI.readText('Enter uername here')} htmlFor="text" className={`floating-label ${isTextActive || text ? 'active' : ''}`}>
+            <img src={user} alt="" />
             <input type="text" name="text" id="text" value={text} onChange={(e) => setText(e.target.value)} onClick={handleTextClick} />
-            <span className={text ? 'active' : ''}> <img src={user} alt="" /> Enter Username</span>
+            <span className={text ? 'active' : ''}> Enter Username</span>
           </label>
 
           <label onMouseEnter={() => TextReaderAPI.readText('Enter password here')} htmlFor="password" className={`floating-label ${isPasswordActive || password ? 'active' : ''}`}>
+            <img src={lock} alt="" />
             <input type={showPassword ? 'text' : 'password'} name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} onClick={handlePasswordClick} />
-            <span className={password ? 'active' : ''}> <img src={lock} alt="" /> Password</span>
+            <span className={password ? 'active' : ''}> Password</span>
             <i className={showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'} onClick={handleShowPassword}></i>
           </label>
 
