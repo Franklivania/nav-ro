@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# NAV-RO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<i>Exhale beauty in style. Nav-ro gives everyone the elegance and desire to live in a world of their dreams; to have the body and appearance they so wish for.</i>
 
-## Available Scripts
+![logo](https://user-images.githubusercontent.com/49784088/226423694-4ed27d39-d540-4c76-92c1-4f71e53d4c54.png)
 
-In the project directory, you can run:
+## This project is built for the ELC-Hackathon which deals in accessible beauty for all.
 
-### `npm start`
+This project is primarily built for those with some form of disability, as there is need for inclusion in all aspects when it comes to making yourself be as beautiful as you want.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Beauty is personal, so what we did was to build a medium which would allow people to be able to have ready access to the products that thay want.
+When building this project, we prioritized giving you products that would better suit your color and skin type, so you can maximise the effect of the product for your use.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features🎛️
 
-### `npm test`
+<ul>
+<li>Voice over Text</li>
+<li>Face Scan</li>
+<li>Voice Assistance</li>
+<li>Face Feature update</li>
+</ul>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Those are the major features of the product, as we have endeavoured to make it user friendly regardless of condition. Now, these are some images of how the site works.
 
-### `npm run build`
+![Screenshot_20230320_033625](https://user-images.githubusercontent.com/49784088/226429686-9dba8fff-dc3d-46ba-b02e-6d3df371891d.png)
+![Screenshot_20230320_034912](https://user-images.githubusercontent.com/49784088/226429697-af8fe826-9297-4b14-a10c-90032df139ea.png)
+![Screenshot_20230320_033654](https://user-images.githubusercontent.com/49784088/226429719-bf898f8c-e4ea-4bde-ad98-ed7c3a56e8c9.png)
+![Screenshot_20230320_033756](https://user-images.githubusercontent.com/49784088/226429740-d64a0f8a-bec7-4f52-bf7c-2b3246c33f50.png)
+![Screenshot_20230320_033721](https://user-images.githubusercontent.com/49784088/226429748-b047e4a7-2eff-4209-9aef-6c0e421a9fa0.png)
+![Screenshot_20230320_033756](https://user-images.githubusercontent.com/49784088/226430297-a05a2ef3-2181-44fc-ab17-0f3538cc2a2e.png)
+![Screenshot_20230320_033745](https://user-images.githubusercontent.com/49784088/226429785-e0a4efa6-4f9d-4bb0-89e4-b24cc60fb464.png)
+![Screenshot_20230320_071358](https://user-images.githubusercontent.com/49784088/226430370-68cc7f86-52ed-4cac-b6bb-5d16294ad914.png)
+![Screenshot_20230320_071414](https://user-images.githubusercontent.com/49784088/226430414-337ae323-1417-4db2-9b30-d9242fd40c4b.png)
+![Screenshot_20230320_071332](https://user-images.githubusercontent.com/49784088/226430446-58f0a6ce-fc39-4346-a5ea-f923c570d60d.png)
+![Screenshot_20230320_071346](https://user-images.githubusercontent.com/49784088/226431990-3358e866-26a8-4a7c-8452-6715660a383b.png)
+![Screenshot_20230320_071310](https://user-images.githubusercontent.com/49784088/226430475-d8f30a31-3525-412f-b62c-25fb5ae47898.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Those are basically what you would see when you visit the page.
+We have made it soo easy to use, that all the paths there are self explanatory.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### DISCLAIMER!!!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Note that this is a demo product and as such we do not recommened using any secure or other login methods to sign up. You can follow the process of the buttons and get what you want.
 
-### `npm run eject`
+## Stacks Used in building.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Skills
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p align="left">
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
+<a href="https://sass-lang.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/sass-colored.svg" width="36" height="36" alt="Sass" /></a>
+<a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a>
+<a href="https://nodejs.org/en/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nodejs-colored.svg" width="36" height="36" alt="NodeJS" /></a>
+<a href="https://firebase.google.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/firebase-colored.svg" width="36" height="36" alt="Firebase" /></a>
+<a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg" width="36" height="36" alt="MongoDB" /></a>
+<a href="https://expressjs.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express-colored.svg" width="36" height="36" alt="Express" /></a>
+<a href="https://fastapi.tiangolo.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/fastapi-colored.svg" width="36" height="36" alt="Fast API" /></a>
+<a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" width="36" height="36" alt="Figma" /></a>
+</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Hosting Services
+![vercel](https://user-images.githubusercontent.com/49784088/226433806-dd4a4b97-0208-4199-95cd-058925853fe1.png)
+![render](https://user-images.githubusercontent.com/49784088/226433815-8617649f-f635-4be2-9b49-d22a5822123a.png)
 
-## Learn More
+## API SERVICES
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<ul>
+<li>Microsoft Speech API</li>
+<li>Imagga</li>
+<li>Face API</li>
+</ul>
