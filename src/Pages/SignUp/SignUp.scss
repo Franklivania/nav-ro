@@ -14,6 +14,7 @@
     height: $height;
     display: grid;
     place-items: center;
+    transition: all .3s ease-in-out;
 
     a {
         color: $primary-color;
@@ -154,5 +155,62 @@
             }
         }
 
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .SignUp{
+        background: none;
+        width: $width;
+        height: $height;
+
+        form{
+            height: $height;
+            width: $width;
+
+            .upper-part{
+                width: $width;
+                padding: 0 1rem;
+                
+                label{
+                    h3{
+                        font-family: $font-two;
+                        font-size: $large-text;
+                        font-weight: 300;
+                    }
+                }
+
+                .social-links{
+                    // display: none;
+                    width: $width;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    a{
+                        padding: 0 0.3rem;
+                    }
+                }
+            }
+
+            p{
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .bottom-part{
+                width: $width;
+
+                .social-links{
+                    display: block;
+                }
+            }
+
+            button{
+                width: $width;
+                margin: 0 2rem;
+            }
+        }
     }
 }

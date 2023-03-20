@@ -70,8 +70,7 @@ const Navbar = () => {
           <Link to='/' onMouseEnter={() => TextReaderAPI.readText('Contact')} className='link'>Contact</Link>
         </nav>
 
-        <aside>
-          <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
+        <aside> 
           <Link onMouseEnter={() => TextReaderAPI.readText('Voice Assistance')} to='/voice-assistance' id='voice'>Voice Assitance</Link>
           <voice onMouseEnter={() => TextReaderAPI.readText('Use text reader')} className="voice">
             <p>Use Text Reader</p>
@@ -93,16 +92,18 @@ const Navbar = () => {
           </nav>
 
           <aside>
-            <button type='submit'> EN <i class="fa-solid fa-globe"></i></button>
             <Link onMouseEnter={() => TextReaderAPI.readText('Voice Assistance')} to='/voice-assistance' id='voice'>Voice Assitance</Link>
+            
             <voice onMouseEnter={() => TextReaderAPI.readText('Use text reader')} className="voice">
-            <p>Use Text Reader</p>
-            <label class="switch">
-              <input checked={voice === 'true'} type="checkbox" onChange={onVoiceSetting} />
-              <span class="slider round"></span>
-            </label>
-          </voice>
+              <p>Use Text Reader</p>
+              <label class="switch">
+                <input checked={voice === 'true'} type="checkbox" onChange={onVoiceSetting} />
+                <span class="slider round"></span>
+              </label>
+            </voice>
+
             <Link onMouseEnter={() => TextReaderAPI.readText('Login')} to='/login' id='login'>Login <i class="fa-solid fa-arrow-right"></i></Link>
+          
           </aside>
         </menu>
       )}
