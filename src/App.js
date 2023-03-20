@@ -7,6 +7,9 @@ import Login from './Pages/Login/Login';
 import Results from './Pages/Results/Results';
 import SignUp from './Pages/SignUp/SignUp';
 import Details from './Pages/Details/Details';
+import Lens from './Pages/Lens/Lens'
+import OpenLens from './Pages/Lens/OpenLens/OpenLens'
+import ReadText from './Pages/ReadText/ReadText';
 import VoiceAssitance from './Pages/VoiceAssistance/VoiceAssistance';
 
 function App() {
@@ -22,6 +25,9 @@ function App() {
             <Route path='/voice-assistance' element={<VoiceAssitance />} />
             <Route path='/results' element={<Results />} />
             <Route path='/details/:id' element={<Details />} />
+            <Route path='/lens' element={<Lens />} />
+            <Route path='/OpenLens' element={<OpenLens />} />
+            <Route path='/readtext' element={<ReadText />} />
           </Routes>
         </Router>
     </div>
