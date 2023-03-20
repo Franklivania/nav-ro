@@ -192,7 +192,7 @@ const OpenCamera = () => {
           <div onMouseEnter={() => TextReaderAPI.readText('See results')} className="box">
             <img src={success} alt="" />
             <p>Scan Complete</p>
-            <Link to={`/results?faceurl=${resultUrl}`} className='results'>See Results</Link>
+            <Link to={`/results?faceurl=${resultUrl}`} className='result'>See Results</Link>
           </div>
         </div>
       )}

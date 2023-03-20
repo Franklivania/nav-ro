@@ -115,9 +115,13 @@ const Results = () => {
     fetchData()
   }, [])
 
+  const navStyle = {
+    backgroundColor: '#A85C3A'
+  }
+
   return (
     <div className='results'>
-      <Navbar />
+      <Navbar style={navStyle}/>
       <div className='r_container'>
         <div className='r_page'>
           {skinAttributes && (
@@ -129,10 +133,10 @@ const Results = () => {
                   <div onMouseEnter={() => TextReaderAPI.readText(skinAttributes.tone)} style={color} className='color'>{skinAttributes.tone}</div>
                 </div>
                 <div className='attr'>
-                  <p onMouseEnter={() => TextReaderAPI.readText('Acne. ' + skinAttributes.acne)}>Acne <span>{skinAttributes.acne}</span></p>
-                  <p onMouseEnter={() => TextReaderAPI.readText('Skin Type. ' + skinAttributes.type)}>Skin Type <span>{skinAttributes.type}</span></p>
-                  <p onMouseEnter={() => TextReaderAPI.readText('Blackhead. ' + skinAttributes.blackhead)}>Blackhead <span>{skinAttributes.blackhead}</span></p>
-                  <p onMouseEnter={() => TextReaderAPI.readText('Skin spot. ' + skinAttributes.skinspot)}>Skin Spot <span>{skinAttributes.skinspot}</span></p>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Acne. ' + skinAttributes.acne)}>Acne : <span>{skinAttributes.acne}</span></p>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Skin Type. ' + skinAttributes.type)}>Skin Type : <span>{skinAttributes.type}</span></p>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Blackhead. ' + skinAttributes.blackhead)}>Blackhead : <span>{skinAttributes.blackhead}</span></p>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Skin spot. ' + skinAttributes.skinspot)}>Skin Spot : <span>{skinAttributes.skinspot}</span></p>
                 </div>
               </div>
             </div>
@@ -141,12 +145,12 @@ const Results = () => {
 
           {products.length > 0 &&
             (
-              <div>
+              <div className='recommend'>
                 <h3 className='r_name' onMouseEnter={() => TextReaderAPI.readText('Recommended products for you')}>Recommended products for you</h3>
                 <div className='products'>
                   {
                     products.map((product, index) => (
-                      <Link to={`/details/${product._id}`}>
+                      <Link to={`/details/${product._id}`} id='path'>
                         <div className='product'>
                           <div className='r_image'>
                             <span onMouseEnter={() => TextReaderAPI.readText(product.categories[0])} className='r_category'>{product.categories[0]}</span>
