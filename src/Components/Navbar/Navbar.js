@@ -71,6 +71,7 @@ const Navbar = () => {
         </nav>
 
         <aside> 
+          {/* <Link onMouseEnter={() => TextReaderAPI.readText('Lens')} to='/lens' id='voice'>Lens</Link> */}
           <Link onMouseEnter={() => TextReaderAPI.readText('Voice Assistance')} to='/voice-assistance' id='voice'>Voice Assitance</Link>
           <voice onMouseEnter={() => TextReaderAPI.readText('Use text reader')} className="voice">
             <p>Use Text Reader</p>

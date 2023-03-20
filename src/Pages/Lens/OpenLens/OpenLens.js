@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './OpenCamera.scss'
+import './Lens.scss'
 import back from '../../../assets/cam-back.svg'
 import frame from '../../../assets/cam-frame.svg'
 import capture from '../../../assets/cam-capture.svg'
@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 
 
 import StorageAPI from '../../../scripts/StorageAPI'
-import { async } from '@firebase/util'
 import TextReaderAPI from '../../../scripts/TextReaderAPI'
 
 const OpenCamera = () => {
@@ -167,17 +166,13 @@ const OpenCamera = () => {
         <div className='display-camera'>
           <video ref={videoRef}></video>
           <img src={frame} alt="" className='frame' />
-          <p>
-            Please look into the camera and hold still. Ensure your
-            face is in the white box, or upload a clear image of yourself.
-          </p>
+          <p>Please place the item properly</p>
         </div>
         <img src={capture} alt="" className='capture-btn'
           onClick={takePicture}
         />
         <div className='Effect'>
           <button id='light' onMouseEnter={() => TextReaderAPI.readText('Lightning')} onClick={handleLightning}>Lightning</button>
-          <button id='position' onMouseEnter={() => TextReaderAPI.readText('Face Position')} onClick={handlePosition}>Face Position</button>
           <button id='position' onClick={pickImage} onMouseEnter={() => TextReaderAPI.readText('Pick Image')}>Pick Image</button>
           <input type='file' id='file' ref={inputFile} style={{ display: 'none' }} onChange={onChangeFile} />
         </div>
@@ -195,7 +190,7 @@ const OpenCamera = () => {
           <div onMouseEnter={() => TextReaderAPI.readText('See results')} className="box">
             <img src={success} alt="" />
             <p>Scan Complete</p>
-            <Link to={`/results?faceurl=${resultUrl}`} className='result'>See Results</Link>
+            <Link to={`/readtext?imageurl=${resultUrl}`} className='results'>See Results</Link>
           </div>
         </div>
       )}
