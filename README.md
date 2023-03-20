@@ -70,3 +70,14 @@ Note that this is a demo product and as such we do not recommened using any secu
 <li>Imagga</li>
 <li>Face API</li>
 </ul>
+
+## TEAM 👥
+
+<ul>
+  <li><a href="https://github.com/Aniefun">Aniefuna Chisom Victoria</a></li>
+  <li><a href="https://github.com/Franklivania">Chibuzo Franklin Odigbo</a></li>
+  <li><a href="https://github.com/devarogundade">Arogundade Ibrahim</a></li>
+  <li><a href="https://github.com/ri-tae-ka">Ritika Thareja ~ RTH</a></li>
+  <li><a href="https://github.com/Tokonii">Tokoni Isaiah</a></li>
+  <li><a href="https://github.com/vaibhav-xt">Vaibhav Maurya</a></li>
+</ul>
