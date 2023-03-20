@@ -1,12 +1,12 @@
-
 @import '../../App.scss';
 
 .container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
-.grid {  width: 1440px;
+.grid {
+    width: 1440px;
     max-width: 90%;
     display: grid;
     margin: 150px;

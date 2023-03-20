@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Results.scss'
 import SkinTone from '../../scripts/SkinTone'
 import FaceAPI from '../../scripts/FaceAPI'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ProductsAPI from '../../scripts/ProductsAPI'
+import Navbar from '../../Components/Navbar/Navbar'
+import TextReaderAPI from '../../scripts/TextReaderAPI'
 
 const Results = () => {
 
+  const [color, setColor] = useState({})
+
   const [products, setProducts] = useState([])
   const [skinAttributes, setSkinAttributes] = useState(null)
+  const [skinUrl, setSkinUrl] = useState('')
 
   const location = useLocation()
 
@@ -61,6 +66,8 @@ const Results = () => {
         return
       }
 
+      setSkinUrl(url)
+
       const tone = await getSkinTone(url)
 
       if (!tone) {
@@ -100,17 +107,67 @@ const Results = () => {
 
       setProducts(result.data)
 
-      console.log(skinAttributes);
-      console.log(products);
+      setColor({
+        backgroundColor: `rgb(${tone.r}, ${tone.g}, ${tone.b})`
+      })
     }
 
     fetchData()
   }, [])
 
   return (
-    <div className='container'>
-      <h3>Results</h3>
-      
+    <div className='results'>
+      <Navbar />
+      <div className='r_container'>
+        <div className='r_page'>
+          {skinAttributes && (
+            <div className='skin'>
+              <h3 onMouseEnter={() => TextReaderAPI.readText('Your skin profile')} className='r_name'>Your skin profile</h3>
+              <div className='profile'>
+                <div className='image'>
+                  <img src={skinUrl} />
+                  <div onMouseEnter={() => TextReaderAPI.readText(skinAttributes.tone)} style={color} className='color'>{skinAttributes.tone}</div>
+                </div>
+                <div className='attr'>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Acne. ' + skinAttributes.acne)}>Acne <span>{skinAttributes.acne}</span></p>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Skin Type. ' + skinAttributes.type)}>Skin Type <span>{skinAttributes.type}</span></p>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Blackhead. ' + skinAttributes.blackhead)}>Blackhead <span>{skinAttributes.blackhead}</span></p>
+                  <p onMouseEnter={() => TextReaderAPI.readText('Skin spot. ' + skinAttributes.skinspot)}>Skin Spot <span>{skinAttributes.skinspot}</span></p>
+                </div>
+              </div>
+            </div>
+          )}
+
+
+          {products.length > 0 &&
+            (
+              <div>
+                <h3 className='r_name' onMouseEnter={() => TextReaderAPI.readText('Recommended products for you')}>Recommended products for you</h3>
+                <div className='products'>
+                  {
+                    products.map((product, index) => (
+                      <Link to={`/details/${product._id}`}>
+                        <div className='product'>
+                          <div className='r_image'>
+                            <span onMouseEnter={() => TextReaderAPI.readText(product.categories[0])} className='r_category'>{product.categories[0]}</span>
+                            <img className='product_image' src={product.images[0]} />
+                          </div>
+                          <div className='detail'>
+                            <p className='brand' onMouseEnter={() => TextReaderAPI.readText(product.brand)}>{product.brand}</p>
+                            <h3 className='name' onMouseEnter={() => TextReaderAPI.readText(product.name)}>{product.name}</h3>
+                            <p className='price' onMouseEnter={() => TextReaderAPI.readText(product.price + ' dollars')}>${product.price.toFixed(2)}</p>
+                          </div>
+                        </div>
+                      </Link>
+                    ))
+                  }
+                </div>
+              </div>
+
+            )
+          }
+        </div>
+      </div>
     </div>
   )
 }
