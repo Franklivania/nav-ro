@@ -9,6 +9,16 @@ const ProductsAPI = {
             console.error(error);
             return null
         }
+    },
+
+    fetchProduct: async function (ID) {
+        try {
+            const response = await axios.get(`https://navro.onrender.com/products/${ID}`)
+            return response.data
+        } catch (error) {
+            console.error(error);
+            return null
+        }
     }
 }
 

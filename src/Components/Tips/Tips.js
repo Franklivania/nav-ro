@@ -37,7 +37,7 @@ const Tips = () => {
                 <Slide damping={0.1} className='slide' triggerOnce={true}>
                     <aside onMouseEnter={() => TextReaderAPI.readText(tips.text)} key={tips.id}>
                         <img src={tips.image} alt="" />
-                        <p>{tips.text}</p>
+                        <span>{tips.text}</span>
                     </aside>
 
                 </Slide>
